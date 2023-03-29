@@ -15,7 +15,7 @@ O projeto foi divididos em etapas afim de facilitar a dinâmica da sua construç
   <li>Desenvolvimento do relatório</li>
 </ol>
 
-## Entendendo a necessidade do cliente
+## 1. Entendendo a necessidade do cliente
 A **TechZone**. com sede em Guarulhos-SP, é uma empresa Brasileira que atua no segmento de venda de eletrônicos direto ao consumidor. A empresa possui diversas lojas em todo estado de São Paulo, além de Rio de Janeiro, Minas Gerais, Pernambuco, Bahia, Goiás e Santa Catarina. Em seu sétimo ano de operação, a empresa tem conseguido manter boas margens de lucro, com um crescimento anual de faturamento na ordem de 6,7%. O CEO decidiu que é hora de expandir as operações e precisa compreender melhor o cenário atual da empresa.
 
 Depois de extensa pesquisa, o CEO e o board de diretores decidiram que uma 
@@ -85,7 +85,7 @@ O valor e a quantidade de cada venda estão presentes nos relatórios diários
 da empresa, que são usados para diferentes decisões durante a semana. Mas esses 
 relatórios são manuais, criados normalmente no Excel, e frequentemente 
 apresentam erros. Cada diretor regional precisa saber as vendas por região, para 
-acompanhar o desempenho da sua loja e comparar com as demais regiões. A 
+acompanhar o desempenho da sua loja e comparar com as demais regiões por meio de um dashboard com alguns indicadores importantes para a métrica do negócio. A 
 empresa faz muitas vendas de produtos como um único pacote ou combo, mas que 
 são produtos diferentes. Por exemplo: um desktop pode ser vendido junto com um 
 monitor, teclado e mouse. Embora seja um pacote, os produtos possuem SKUs 
@@ -97,3 +97,10 @@ Os diretores acreditam que algumas categorias de produtos podem não ser
 lucrativas e gostariam de confirmar esta informação com o novo sistema de BI. Essa 
 informação também será útil para definir as estratégias de expansão e quais novas 
 categorias de produtos devem ser consideradas.
+
+## 2. Elaboração do modelo dimensional
+O primeiro passo para construir o modelo lógico dimensional. Para isso, é imprescindível entender o modelo lógico transacional que já está em vigor. Em linhas gerais, o modelo pode ser definido pelo seguinter schema:
+<img src = "assets/modelo_logico_transacional.png">
+Uma vez entendido o modelo anterior, fica relativamente simples modelar o Data Warehouse.<br>
+O sistema de gerenciamento de banco de dados (SGBD) utilizado foi o MySQL, para a modelagem foi utilizado o DB Schema.
+O segundo passo tomado foi criar um usuário para ter acesso ao SGBD, o script pode ser encontrado [clicando aqui](01%20-%20Usu%C3%A1rio/User.sql).
