@@ -12,6 +12,7 @@ O projeto foi divididos em etapas afim de facilitar a dinâmica da sua construç
   <li>Entendendo a necessidade do cliente</li>
   <li>Elaboração do modelo dimensional</li>
   <li>Elaboração do modelo físico</li>
+  <li>Exportação dos dados</li>
   <li>Desenvolvimento do relatório</li>
 </ol>
 
@@ -98,9 +99,34 @@ lucrativas e gostariam de confirmar esta informação com o novo sistema de BI. 
 informação também será útil para definir as estratégias de expansão e quais novas 
 categorias de produtos devem ser consideradas.
 
-## 2. Elaboração do modelo dimensional
-O primeiro passo para construir o modelo lógico dimensional. Para isso, é imprescindível entender o modelo lógico transacional que já está em vigor. Em linhas gerais, o modelo pode ser definido pelo seguinter schema:
+## 2. Elaboração do modelo lógico dimensional
+O primeiro passo para construir o modelo lógico dimensional é entender o modelo lógico transacional que já está em vigor. Em linhas gerais esse modelo pode ser definido pelo seguinter schema:
 <img src = "assets/modelo_logico_transacional.png">
-Uma vez entendido o modelo anterior, fica relativamente simples modelar o Data Warehouse.<br>
-O sistema de gerenciamento de banco de dados (SGBD) utilizado foi o MySQL, para a modelagem foi utilizado o DB Schema.
-O segundo passo tomado foi criar um usuário para ter acesso ao SGBD, o script pode ser encontrado [clicando aqui](01%20-%20Usu%C3%A1rio/User.sql).
+
+O segundo passo é definir o sistema de gerenciamento de banco de dados (SGBD) para o modelo dimensional. Como não há nenhuma restrição, utilizei o MySQL.  
+
+Uma vez decidido o SGBD, passamos ao terceiro passo, que consistiu na criação de um usuário para ter acesso ao sistema de modelagem. O script pode ser encontrado [clicando aqui](01%20-%20Usu%C3%A1rio/User.sql).  
+
+*OBS: Como sou a única pessoa que possui acesso ao Data Warehouse, criei um usuário com privilégios de root*.  
+
+No quarto, e último passo, utilizei o [**DB Schema**](https://dbschema.com) para conectar ao usuário e ao MySQL e criar o seguinte diagrama do modelo logico dimensional:
+<img src = "assets/modelo_l%C3%B3gico_dimensional.png">
+
+## 3. Criação do modelo físico
+O código gerado pela criação dos schemas pode ser visualizado  [clicando aqui](02%20-%20Schema%20Modelo%20F%C3%ADsico/Modelo%20F%C3%ADsico.sql).  
+
+**Explicando um pouco:**
+<ol>
+  <li>sk_cliente, sk_localidade, sk_produto e sk_data são chaves primárias que se incrementam automaticamente;</li>
+  <li>Foi adicionado uma restrição na tabela fvendas por meio de uma chave primária onde não é possível ter uma mesma transação de um cliente, com um mesmo produto, em uma mesma localidade e em uma mesma data; </li>
+  <li>Foram adicionadas restrições por meio de chaves estrageiras na tabela fvendas relacionadas com as tabelas dimensões, onde o update ou a deleção de valores dessas tabelas irão atualizar ou deletar os valores da tabela fato;
+  </li>
+</ol>
+
+## 4. Exportação dos dados
+Com o DW criado chegou a hora de fazer a exportação dos dados, a seguir é possível ter acesso a massa de dados exportados por meio do MySQL [clicando aqui](03%20-%20Carga%20de%20Dados).
+
+
+
+
+
