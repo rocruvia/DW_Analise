@@ -26,6 +26,6 @@ DELIMITER ;
 
 
 # Executa a Stored Procedure
-CALL dimensional.carga_dtempo('2010-01-01','2030-01-01');
+CALL dimensional.carga_dtempo('2010-01-01','2012-01-01');
 
 OPTIMIZE TABLE DIMENSIONAL.DIM_TEMPO;

@@ -119,12 +119,16 @@ O código gerado pela criação dos schemas pode ser visualizado  [clicando aqui
 <ol>
   <li>sk_cliente, sk_localidade, sk_produto e sk_data são chaves primárias que se incrementam automaticamente;</li>
   <li>Foi adicionado uma restrição na tabela fvendas por meio de uma chave primária onde não é possível ter uma mesma transação de um cliente, com um mesmo produto, em uma mesma localidade e em uma mesma data; </li>
-  <li>Foram adicionadas restrições por meio de chaves estrageiras na tabela fvendas relacionadas com as tabelas dimensões, onde o update ou a deleção de valores dessas tabelas irão atualizar ou deletar os valores da tabela fato;
+  <li>Foram adicionadas restrições por meio de chaves estrageiras na tabela fvendas relacionadas com as tabelas dimensões, onde atualizações ou deleções de valores dessas tabelas irão atualizar ou deletar os valores da tabela fato;
   </li>
 </ol>
 
 ## 4. Exportação dos dados
 Com o DW criado chegou a hora de fazer a exportação dos dados, a seguir é possível ter acesso a massa de dados exportados por meio do MySQL [clicando aqui](03%20-%20Carga%20de%20Dados).
+
+## 5. Desenvolvimento do relatório
+Após todos os processos anteriores, para fazer a conexão ao banco de dados **MySQL** ao **Power BI** foi necessário instlar um conectr, que pode ser encontrado [Aqui](https://dev.mysql.com/downloads/connector/net/). Após esse processo foram exportadas todas as tabelas e elaborado o relatório de vendas. A sua forma interativa pode ser encontrada [aqui](https://app.powerbi.com/view?r=eyJrIjoiODZiODEyODQtZDkyOC00ZTE1LTk2MzgtMzdmNmEzNjE4MzU0IiwidCI6IjAyNTg1ZjBjLTRjNmMtNDY3Ny05YzlhLWI4OTZmYThlZTczNyJ9&pageName=ReportSection), entretando seu jpg pode ser encontrado a seguir:
+<img src = "assets/Relatorio_Vendas.jpg">
 
 
 
